@@ -8,12 +8,12 @@ export const useTaskStore = defineStore('task', () => {
   const loadTasks = async () => {
     try {
       if (!tasks.value) {
-        const res = await fetch('/task.json')
+        const res = await fetch(`${import.meta.env.BASE_URL}task.json`)
         tasks.value = await res.json()
         saveToLocalStorage()
       }
     } catch (err) {
-      console.log(err)
+      tasks.value = []
     }
   }
 
