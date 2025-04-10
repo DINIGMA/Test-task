@@ -28,7 +28,11 @@
             Удалить
           </button>
           <label class="custom-checkbox" @click.stop>
-            <input type="checkbox" @change="taskStore.toggleTaskDone(currentTask.id)" />
+            <input
+              type="checkbox"
+              :checked="currentTask?.done"
+              @change="taskStore.toggleTaskDone(currentTask.id)"
+            />
             <span class="checkmark"></span>
           </label>
         </div>
